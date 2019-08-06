@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 """
 I have been finding it difficult to visualize the output of baselines,
-so I wrote something that can plot the reward or other stats when running ppo2
+so I wrote something that can plot the reward or other stats when running ppo2.
 
 When using this code run the OpenAI baselines ppo2 code using the following
 command:
@@ -47,8 +47,9 @@ def main(args):
             match_list.append(float(match.split('| ')[1].split(' ')[0]))
             time_list.append(float(time.split('| ')[1].split(' ')[0]))
 
+    name = args.filename.split('/')[-1].split('.')[0]
     plt.plot(time_list, match_list)
-    plt.title('ppo2 ' + args.keyword)
+    plt.title('{} -- {}'.format(name, args.keyword))
     plt.show()
 
 
